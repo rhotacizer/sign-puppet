@@ -435,7 +435,7 @@
         var height = (this.points[0].y + this.points[1].y) / 2;
         var center = (this.points[0].x + this.points[1].x) / 2;
         var width = Math.abs(this.points[0].x - this.points[1].x);
-        var wide = vars.mx * width / 2 * s;
+        var wide = vars.mx * width / 2;
 
         if (vars.mlz > 0.25) {
           wide = -6 * s;
@@ -1433,8 +1433,8 @@
 
 
         var zoomPivot = {x: 0, y: -p.bodyHeight};
-        Pose.zoomDistort(rMovePoints,  zoomPivot, 0.002);
-        Pose.zoomDistort(lMovePoints,  zoomPivot, 0.002);
+        Pose.zoomDistort(rMovePoints,  zoomPivot, 0.4 / p.bodyHeight);
+        Pose.zoomDistort(lMovePoints,  zoomPivot, 0.4 / p.bodyHeight);
 
         if (vars.la > vars.ra) {
           Pose.move(rightArm.handPoints, rightArm.handPivot, rightArm.handMove);
